@@ -1,465 +1,296 @@
-\documentclass{grattan}
-% Comments are deployed by the % sign; everything after % is ignored by the compiler.
-% Please do not put comments before \documentclass as these are reserved for TeX directives.
-% add_to_dictionary: SSBs? roman
-\addbibresource{bib/put-new-refs-here.bib}
-
-\author{John Daley}
-\title{1 Orange Balloon}
-\subtitle{Hielten sich fuer schlaue Leute und fühlten sich gleich angemacht}
-
-\GrattanReportNumber{2018-00}
-
-\acknowledgements{%
-This report was written by Peter Goss, Julie Sonnemann, and Kate Griffiths.
-Carmela Chivers provided extensive research assistance and made substantial contributions to the report.
-
-We would like to thank the members of Grattan Institute's School Education Program Reference Group for their helpful comments, as well as numerous government and industry participants and officials for their input.
-
-The opinions in this report are those of the authors and do not necessarily represent the views of Grattan Institute's founding members, affiliates, individual board members, reference group members or reviewers.
-Any remaining errors or omissions are the responsibility of the authors.
-
-Grattan Institute is an independent think-tank focused on Australian public policy.
-Our work is independent, practical and rigorous.
-We aim to improve policy outcomes by engaging with both decision-makers and the community.
-
-For further information on the Institute's programs, or to join our mailing list, please go to: \textcolor{blue}{\url{http://www.grattan.edu.au/}}.
-
-{\footnotesize
-This report may be cited as:
-Daley, J., Goss, P., Sonnemann, J., Griffiths, K., and Chivers, C\@. (2018). \emph{\mytitle}. Grattan Institute.
-
-ISBN: 978-1-925015-96-6
-
-All material published or otherwise created by Grattan Institute is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License\par
+\documentclass[submission]{grattan}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
 }
-}
+\makeatother
 
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
 
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
 
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
 
+\usepackage{alltt}
+\usepackage{longtable}
+\date{May 2018}
+\title{Submission to the Senate Economics Legislation Committee inquiry into the Treasury Laws Amendment (Personal Income Tax Plan) Bill 2018}
+\author{Danielle Wood, John Daley, and Hugh Parsonage}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 
 
-\begin{overview}
-This is the overview. 
-The word \textbf{Overview} appears in the contentspage at \verb=\contentspage= as an unnumbered entry.
-The gap between the overview heading and the overview text should be the same as in regular chapters. 
-Set over two columns, the first and last baseline of the text in each column have the same vertical positions.
-
-(But only if the overview is large enough!
-If the text is too brief, the algorithm might prefer some other arrangement.
-This is unlikely.) 
-
-The first line of the overview starts at a fixed vertical position but the height of the text is determined by the constraint of matching the baselines.
-In particular if the overview is too large, it will overflow the page.
-
-Footnotes are not permitted in the overview.
-
-Note that neither \LaTeX{} nor any other checks will stop or even warn you if the overview text overflows the bottom margin.
-This is probably something that I could do, but it's not really my fault if you're that inattentive\dots . 
-\end{overview}
-
-\begin{recommendations}
-\recommendation{Recommendation}\label{rec:use-labels}
-Some text under a recommendation.
-\end{recommendations}
-
-\contentspage
-
-\chapter{Chapter title}\label{chap:example}
-This demonstrates the markup commands for sectioning. 
-If you want to cross-reference a chapter/section/\etc\ later, you need to add a label, as on the line two lines (in the source) above this, and throughout.
-Although \LaTeX{} doesn't require it, every label must have a specific prefix followed by a colon, as throughout this document.
-Furthermore, every chapter must be labelled, even if it is never referenced.
-
-To refer to a chapter, use \Chapref{chap:example}, % not \Vref{chap:example}, 
-otherwise the hyperlink points to the baseline of the first text of the chapter, rather than the chapter title.
-To refer to a chapter range, \Chaprefrange{chap:example}{chap:citations}.
-
-Hugh forgot that you want to use the word `appendix', not `chapter' when referring to a chapter-level heading in the appendix.
-If you can see this text, that bug should be fixed.
-Thanks to Carmela for filing. 
-For a bit more information about appendices, see \Chapref{chap:appendices} on \vpageref{chap:appendices}. 
-
-(Do you see what we did there?
-Sometimes you might want to refer something on a page not connected to a heading or caption,\footnote{Known generally as `counters'.} such as a paragraph in the middle of a section.
-To do so, you have to mark the location with a `phantom section', as demonstrated in \Vref{paragraph:sentence-ending-periods}.
-Note that the hyperlink with the cross-reference points to the location of the paragraph, not merely to the whole page.
-To mention the page number, we say \vpageref{paragraph:sentence-ending-periods}.
-This command is safe in one important respect: it will expand to `on this page', if the locations converge on the same page, so that the page number's appearance is never jarring.)
-
-\section{Section title}\label{sec:example}
-\subsection{Subsection title}\label{subsec:example}
-\subsubsection{Sub-subsection title}\label{subsubsec:example}
-Some text in one paragraph. 
-Some text in one paragraph. 
-Some text in one paragraph. 
-
-Some text in the next paragraph. 
-Some text in the next paragraph. 
-Some text in the next paragraph. 
-
-Since single newlines are ignored, put different sentences on different lines.
-
-\begin{enumerate}
-	\item An enumerated list
-	\item Another item
-	\begin{enumerate}
-		\item A sub-item of the second item
-		\item Another sub-item
-
-		New paragraphs are the same as in the body text
-	\end{enumerate}
-\end{enumerate}
-
-Another list:
-\begin{itemize}
-	\item A bulleted/non-enumerated list
-	\item Another item
-	\begin{itemize}
-		\item A sub-item.
-	\end{itemize}
-\end{itemize}
-
-\chapter{Figures and tables}\label{chap:figs-and-tbls}
-An initial cross-reference to \Vref{fig:first-example-figure}.
-
-\begin{figure}
-\caption{Figure caption\label{fig:first-example-figure}}
-\units{Figure units}
-\includegraphics{logos/GrattanSVGLogo.pdf}
-\noteswithsource{Notes}{Source}
-\end{figure}
-
-A cross-reference to \Vref{box:example}.
-Sometimes you want two figures on the same page, use the code in \Vrefrange{fig:dbl-example-figure-A}{fig:dbl-example-figure-B}.
-Other times you want a small box on one page (such as at the end of a chapter when the text ends on the right column).
-See the code for \Vref{box:centred-box}.
-
-\doublecolumnfigure{
-\caption{Figure caption\label{fig:dbl-example-figure-A}}
-\units{Figure units}
-\includegraphics{logos/GrattanSVGLogo.pdf}
-\notes{Notes}
-}{
-\caption{Figure caption\label{fig:dbl-example-figure-B}}
-\units{Figure units}
-\includegraphics{logos/GrattanSVGLogo.pdf}
-\source{Source}
-}
-
-\begin{centredsmallbox}{A centred small box}{box:centred-box}
-A centred small box.
-A centred small box.
-A centred small box.
-A centred small box.
-
-A centred small box.
-A centred small box.
-A centred small box.
-A centred small box.
-
-A centred small box.
-A centred small box.
-A centred small box.
-A centred small box.
-
-A centred small box.
-A centred small box.
-A centred small box.
-A centred small box.
-\end{centredsmallbox}
-
-\clearpage
-
-\begin{verysmallbox}{A very small box}{box:very-small-box-example}
-Contents of very smallbox.
-
-A paragraph with a footnote.
-
-Some text in a very small box. 
-Some text in a very small box. 
-Some text in a very small box. 
-\end{verysmallbox}
-
-\begin{smallbox}{A small box}{box:example}
-A smallbox. 
-Some text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some text in a small box.%
-\footnote{Footnote entry.}
-
-
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-
-
-Some text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some text in a small box.
-
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-
-Some text.%
-\footnote{All footnotes must end with a full stop.} 
-Some other text.%
-\footnote{(Or a closing parenthesis, which itself must be preceded by a full stop.)}
-To refer to a footnote, use footnote~\ref{fn:example} \vpageref{fn:example}, rather than \Vref{fn:example} which will link to a different counter; 
-the label command \emph{must} be inside the footnote.%
-\footnote{\label{fn:example}For example, refer here.}
-\end{smallbox}
-
-A cross-reference to \Vref{fig:2nd-example-figure}, with a different cross-reference that will never print the page number: \Cref{fig:first-example-figure}.
-
-\phantomsection\label{paragraph:sentence-ending-periods}
-If a sentence ends with a capital letter, you must use backslash-@ immediately before the full stop.
-Many governments have tried to change the GST\@. 
-But few have succeeded.
-
-\begin{figure}
-\caption{A second figure caption\label{fig:2nd-example-figure}}
-\units{Figure units}
-\includegraphics{logos/GrattanSVGLogo.pdf}
-\noteswithsource{Notes}{Source}
-\end{figure}
-
-A table:
-
-\begin{table}
-\caption{Table caption}\label{tbl:one-table}
-\begin{tabularx}{\linewidth}{XXR}
-%
-\toprule
-\textbf{Column title}                           & \textbf{Column type}                              & \textbf{Ragged left title} \\
-\midrule
-Move from one cell to the next cell in the same row by using an ampersand & Move to the next line by using a double backslash & Use toprule, midrule, and bottomrule. \\
-Move from one cell to the next cell in the same row by using an ampersand & Move to the next line by using a double backslash & Use toprule, midrule, and bottomrule. \\
-Move from one cell to the next cell in the same row by using an ampersand & Move to the next line by using a double backslash & Use toprule, midrule, and bottomrule. \\
-Move from one cell to the next cell in the same row by using an ampersand & Move to the next line by using a double backslash & Use toprule, midrule, and bottomrule. \\[15.5pt]
-Use the optional argument & to the double backslash & to specify the precise distance between rows. \\
-\cmidrule(lr){2-3}
-Never use vertical rules & But sometimes horizontal rules are appropriate. & Use cmidrule(lr) \\
-\bottomrule
-\end{tabularx}
-\noteswithsource{Notes}{Source}
-
-
-
-\end{table}
-Another table, cross-referenced in the same way \Vref{tbl:one-table}.
-
-A big box, occupying two pages floats with respect to the body text.
-
-\begin{bigbox*}{Big box title}{box:big-example}
-Far far away, behind the word mountains, far from the countries Snoot and Boot, there live the blind texts.
-Separated they live in Bookmarks grove right at the coast of the Semantics, a large language ocean.
-
-A small river named Carlton flows by their place and supplies it with the necessary regalia.
-It is a paradise country, in which roasted parts of sentences fly into your mouth.
-
-Even the all-powerful pointing has no control about the blind texts it is an almost non-orthographic life One day however a small line of blind text by the name of  decided to leave for the far World of Grammar.
-
-The Big Ox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semi, but the Little Blind Text didn't listen.
-She packed her seven verse, put her initial into the belt and made herself on the way.
-
-When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her home-town Bookmarks grove, the headline of Alphabet Village and the sub-line of her own road, the Line Lane.
-Pitiful a rhetoric question ran over her cheek, then she continued her way.
-
-On her way she met a copy.
-The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word ``and" and the Little Blind Text should turn around and return to its own, safe country.
-But nothing the copy said could convince her and so it didn't take long until a few insidious Copy Writers ambushed her, made her drunk with Long Tongue and Parole and dragged her into their agency, where they abused her for their pleasure.
-\end{bigbox*}
-
-\chapter{Citations}\label{chap:citations}
-The database is contained in a .bib file.\footnote{A footnote.} 
-Citations to appear in-line with the text are inserted like: \textcite{Daley-etal-2016-SAPTO}.
-Citations to appear in a footnote use the structure of this sentence.\footcite{Daley-etal-2016-Assessing-2016-super-tax-reforms}
-To refer to a page number: \textcite[][30]{Daley-etal-2016-SAPTO}.
-To refer to something other than page number.\footcite[][Chapter~4]{Daley-etal-2016-SAPTO}
-
-Use the plural forms of these commands to cite multiple works (\textcites{Piketty2013}{Leigh-2013-BattlersBillionaires}) at the same point.
-Square brackets / optional arguments are placed before the key.\footcites{AtkinsonStiglitz1976}[][42]{ABS-WagePriceIndex-Jun2017}
-
-
-You can include a document in the bibliography without it appearing in the main matter: \nocite{*}.
-The above command cites \emph{all} entries in the document. 
-You should remove this line before compiling. 
-
-Some two-author citations: \textcite{Norton2014Doubtfuldebtrising}.\footcites{DuckettBreadon-2014-Unlocking-skills}{Duckett-2016-Premium-policy-getting-more-from-PBS}{Norton2015Universityfeeswhat}{Norton2015cashnexushow}
-
-\chapter{Testing suite 1 (this chapter title may need to span two columns)}\label{chap:test-1}
-The box on the right (\Cref{box:test-two-line-caption}) should have a top-aligned caption (re \#80):
-
-\section{Blind section}
-A small river named Carlton flows by their place and supplies it with the necessary regalia.
-It is a paradise country, in which roasted parts of sentences fly into your mouth.
-
-Even the all-powerful pointing has no control about the blind texts it is an almost non-orthographic life One day however a small line of blind text by the name of  decided to leave for the far World of Grammar.
-
-The Big Ox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semi, but the Little Blind Text didn't listen.
-She packed her seven verse, put her initial into the belt and made herself on the way.
-
-When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her home-town Bookmarks grove, the headline of Alphabet Village and the sub-line of her own road, the Line Lane.
-Pitiful a rhetoric question ran over her cheek, then she continued her way.
-
-On her way she met a copy.
-The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word ``and" and the Little Blind Text should turn around and return to its own, safe country.
-But nothing the copy said could convince her and so it didn't take long until a few insidious Copy Writers ambushed her, made her drunk with Long Tongue and Parole and dragged her into their agency, where they abused her for their pleasure.
-
-\begin{verysmallbox}[p]{This is a long long caption which may be over more than one line}{box:test-two-line-caption}
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-\end{verysmallbox}
-
-In addition to personal costs, obese people, on average, receive more healthcare than other people, with taxpayers funding most of the costs of those services.
-Obese people also have lower rates of employment, receive more social services payments, and contribute less income tax than people in the normal weight range.
-Together, this foregone tax and additional health and welfare expenses mean that taxpayers are about \$5.3~billion worse off each year. 
-
-This report calls for a tax on sugar-sweetened beverages.
-We recommend an excise tax of 40 cents per 100 grams of sugar on non-alcoholic, water-based beverages that contain added sugar.
-This will increase the price of a two-litre bottle of soft drink by about 80 cents.
-This tax would raise about \$500~million a year, generate a drop of about 15 per cent in consumption of SSBs and likely result in a small decrease in obesity rates, as people switch to water and other drinks not subject to the tax. 
-
-\chapter{Testing suite 2}\label{chap:test-2}
-The box on the right (\Cref{box:test-one-line-caption}) should have a top-aligned caption (re \#80):
-
-\begin{smallbox}{This is a short caption}{box:test-one-line-caption}
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box. 
-Some other text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some text in a small box. 
-Some other text in a small box.  
-\end{smallbox}
-
-\chapter{Testing suite 3}\label{chap:ibid-postnote}
-First use of the citation.\footnote{Some text: \textcite{PC-2014-Childcareearlychildhood}.}
-
-The post-notes in the footnotes should be lower-case.\footcite[][14--15]{PC-2014-Childcareearlychildhood}
-
-Here, the roman numerals are fine, but not the abbreviation for `page'.\footcite[][XXV]{PC-2014-Childcareearlychildhood}
-
-Between 2011 and 2016, half of all jobs growth was  within the city centres and inner suburbs in both Melbourne and Sydney.%
-	\footnote{Melbourne residents in suburbs more than 20 kilometres from the CBD have fewer than three jobs nearby for every 10 residents, while those close to the city centre have access to nine jobs for every 10 residents, \citetitle{KellyDonegan2015-City-limits}.}
-Knowledge-intensive businesses -- which tend to be the most productive, and which are growing fastest -- particularly benefit from clustering together in the centres of large cities.%
-	\footcite[][23--29]{KellyDonegan2015-City-limits}
-
-
-
-\appendix
-
-\chapter{Appendices and back matter}\label{chap:appendices}
-To start the appendix area, just invoke \verb=\appendix= as above. 
-There's nothing else special about it.
-Elements such as glossaries and indexes are not supported by this class file, though can be implemented.
-
-The bibliography is not an appendix, but appears after the appendix. 
-
-
-\printbibliography
-
-
-% Put here from now on so that additional tests don't mess up earlier text photos
-\chapter*{Testing suite}
-\section{Quotes}
-Quotes can be inserted by the \texttt{quote} environment:
-\begin{quote}
-One of the reasons that clinicians struggle to form partnerships with patients and consumers is that there is inadequate information for proper informed consent.
-The numbers that are collected don't filter through to clinicians dealing with the patient, and certainly not to the patient themselves.
-I encourage people to ask doctors three questions: `What are my options?', `What are the treatment outcomes -- both benefits and risks?', and `How likely are those outcomes to happen to me?'.
-Doctors though say `We just don't have that information'.
-\end{quote}
+\begin{summary}
 
+We welcome the opportunity to comment on the Treasury Laws Amendment (Personal Income Tax Plan) Bill 2018.
 
+The tax cuts proposed by the Personal Income Tax Plan are the largest ever proposed in a Federal Budget. The third tranche of the Plan will ultimately comprise about half the annual cost of the Plan.
 
+This substantial reduction in revenue is not obviously consistent with the Federal Government's medium-term fiscal strategy of budget surpluses on average over the economic cycle. On current projections these will only be achieved if Australia experiences a lengthy period of unprecedented economic calm and fiscal restraint.
+
+While fairness is in the eye of the beholder, the Plan should be evaluated relative to the progressivity of the income tax system today. While the level of progressivity is a value choice, changes to such a fundamental issue should be made consciously, in the light of comprehensive analysis of proposed changes.
+
+The progressivity of the Tax Plan should be assessed relative to the distribution of taxation liabilities across those who file a tax return, and therefore earn some income.
+
+Without tax cuts, the income tax system will become less progressive. Bracket creep has the biggest effect on the average tax rates of taxfilers in the middle of the distribution (who earn around \$50,000 a year).
+
+The Plan does little to unwind the effect of this bracket creep. It delivers a relatively constant reduction in the average percentage of tax paid across the distribution of taxfilers.
+
+The outcomes are somewhat sensitive to wages growth. If wages growth is lower than projected, then the combination of bracket creep and the tax package will be a little less regressive than if wages grow as projected in the budget.
+
+Other analysis is less relevant to fairness. The proportion of the tax cuts over 10 years going to high income earners distracts from the \emph{ongoing} impact of the tax cuts after that period. The proportion of taxfilers in the top or second-top tax bracket, or the proportion of tax paid by them, is likewise a distraction because it does not prove whether the overall system is becoming more or less progressive.
+\end{summary}
+
+\chapter{How large are the tax cuts?}\label{chap:how-large-are-the-tax-cuts}
+
+The tax cuts proposed by the Treasury Laws Amendment (Personal Income Tax Plan) Bill 2018 are the largest ever proposed in a Federal Budget. We calculate that once all phases of the plan are in force, they will reduce income tax collected by \$22 billion in 2024-25.\footnote{The analysis in this submission updates and refines quantitative analysis we have previously published, including Daley and Wood (2018)} The largest previous changes we have identified were the tax cuts announced in May 2006, projected to cut income tax by \$10 billion in 2009-10.\footnote{Treasury (2006), p.23.}
+
+The Government has not made available estimates of the annual impact of the tax cuts beyond the forward estimates period. With-holding this information cannot be justified on the basis that it is unreliable\footnote{Murphy (2018)} given that the Government has been prepared to provide information on the total impact of each component of the package over a ten-year period, which can only be calculated by adding the impact of each year.
+
+Grattan Institute has estimated the impact of the tax cuts using the 2015-16 individuals sample file, assuming the Budget's estimates of wage growth are uniform across the wage distribution, and using the Budget's estimates of population and participation growth.
+
+On these assumptions, as shown in Figure 1,\footnote{Our calculations roughly correspond to published Treasury projections of the cumulative impact of the package components, but may vary due to differences in the timing of collections.} the first tranche of the tax cuts, which introduces a Low and Middle Income Tax Offset (which we have labelled the ``Lamington'' for convenience), will reduce tax collections by \$5 billion in 2021-22. The second tranche, will reduce tax collections by a further \$6 billion in 2022--23. The third tranche, will reduce tax collections by a further \$11~billion in 2024-25. This third tranche, will ultimately comprise about half the annual cost of the Personal Income Tax Plan.
+
+Figure : Tax cuts will reduce tax collections by \$22 b in 2024-25
+
+Annual impact of Personal Income Tax Plan, \$ billion (nominal)
+
+%% \includegraphics[width=4.47847in,height=3.35885in]{media/image2.emf}
+
+
+Notes: Assumes wages and population growth as per 2018-19 Budget, wage growth uniform across the wages distribution. Excludes interaction effects (\textless{}\$0.5bn in any year).
+
+Sources: ATO (2018); Grattan analysis
+
+
+\chapter{Are the tax cuts affordable? }\label{chap:are-the-tax-cuts-affordable}
+
+The Personal Income Tax Plan commits the federal budget to a very substantial reduction in revenue.
+
+The Personal Income Tax Plan is not obviously consistent with the Government's medium-term fiscal strategy ``to achieve budget surpluses, on average, over the course of the economic cycle.''\footnote{Treasury (2018a), p.3-7} The Commonwealth has posted substantial budget deficits since 2009-10 of around 3 per cent of GDP. The 2018-19 budget effectively delays reaching a surplus of 1 per cent of GDP from 2022-23 to 2026-27.\footnote{Treasury (2018a), p.3-15} The budget will only be in surplus if one assumes an economic cycle of almost 30 years, which is historically unlikely.
+
+The slow consolidation of the Commonwealth's budget position is shown by the slow reduction in the Commonwealth net debt position from 18 per cent of GDP today to 4 per cent of GDP in 2028-29. Of course, this depends in part on the projected value of the Commonwealth's assets: gross debt is only projected to fall form \$561 billion in 2018-19 to \$532 billion by 2028-29.\footnote{Treasury (2018a), p.3-16}
+
+In short, the Personal Income Tax Plan is only consistent with the Government's medium-term fiscal strategy if Australia experiences a long period of unprecedented economic calm and fiscal restraint.
+
+The fiscal problems of committing to large tax cuts in the future were illustrated in the late 2000s. The Government announced and legislated tax cuts in 2007 of \$5 billion a year, with an additional \$3 billion a year to take effect in 2008-09.\footnote{Treasury (2007), p.3} By the time these took effect, the Global Financial Crisis had pushed the federal budget into a substantial deficit. But politically it was too hard to unwind tax cuts that had already been legislated.
+
+The 2018 tax cuts are even further into the future: half of the proposed reduction - \$11 billion a year -- only comes into force in six years time. Based on history, a material economic downturn at some time in the interim is more than likely.
+
+\chapter{}\label{chap:section-1}
+
+\chapter{Are the tax cuts fair?}\label{chap:are-the-tax-cuts-fair}
+
+Fairness is in the eye of the beholder. But much of the debate about the Personal Income Tax Plan has been muddied by misleading statistics and comparisons. While we do not have a view on whether the tax cuts are ``fair'', we believe that the public are entitled to a debate, informed by evidence, that clarifies the issues.
+
+First, this debate needs a baseline for measuring whether the tax cuts make the system more or less ``fair''. We believe the most useful baseline is the progressivity of the tax system -- do relatively high income earners bear more or less of the tax burden?
+
+Second, the debate needs an assessment against this baseline.
+
+And third, the debate needs to understand how the results might vary if the economy turns out differently from projections.
+
+On each of these issues, the debate does \emph{not} need contributions that are unclear about their baseline, or that use statistics which appear to measure progressivity, but do not in fact do so.
+
+\section{Baseline }\label{sec:baseline}
+
+The core fairness question for the income tax system is its level of progressivity. In other words, \textbf{what proportion of income tax is paid} by those with relatively high incomes? Progressivity remains constant if a tax cut reduces tax paid by the same proportion for all taxpayers. Progressivity remains roughly (but not precisely) the same if \textbf{\emph{average} tax rates change by the same amount} across the income distribution.
+
+There are alternatives. A number of these imply that every tax change should make the system \emph{more} progressive. Taken to extremes, these would ultimately lead to a tax system in which a very small number of people paid all of the income tax collected.
+
+One could look for a constant \textbf{dollar value of tax cuts} across the income distribution. This is the effect of the ``Lamington'' component of the Personal Income Tax Plan. If this were the only form of tax cuts, it would lead to a much more progressive income tax because those with higher incomes currently pay more tax in absolute terms.
+
+One could compare the \textbf{proportion of the budget cost of tax cuts} across the income distribution.\footnote{Grudnoff (2018), p.1-2} But because higher income earners pay a higher proportion of total tax (they both earn more, and get taxed at a higher rate), a tax cut that has no impact on progressivity will necessarily provide larger tax cuts to those on higher incomes.
+
+One could compare the \textbf{percentage increase in post-tax income} across the income distribution.\footnote{Phillips (2018), p.11} While this sounds more like a proportionate outcome, it implies an increasingly progressive tax system. By definition, post-tax income is a lower proportion of pre-tax income for those on higher incomes. For example, if there were a uniform 2 per cent increase in post-tax income, a middle income earner would pay 11 per cent less tax while a high income earner would pay 5 per cent less tax.\footnote{Assumes a middle-income earner with income of \$50,000 and an average tax rate of 15\%, and a higher (approximately 90\textsuperscript{th} percentile) income earner with income of \$120,000 and an average tax rate of 29\%.}
+
+Other alternatives might appear to be proxies for judging that a tax change is progressive, but can conceal actual changes in either direction.
+
+The percentage of tax paid by people on a particular tax bracket provides no insight into progressivity.\footnote{For example, the budget overview highlights how an increasing proportion of taxpayers will be on the top marginal tax rate: Treasury (2018b), p.9. See also Treasury (2018c), p.7-8} For example, with no changes to tax rates, as wages grow, the top bracket will include a greater \emph{proportion of taxpayers}, and so the proportion of tax paid by them will also grow. Nevertheless, the top 10 per cent of taxpayers would pay a \emph{lower} proportion of income tax.
+
+The percentage of tax savings under the Tax Plan over ten years provides no insight into progressivity. Some have argued that the Tax Plan is fair because the third stage is only a minority of the total revenue foregone over the next ten years.\footnote{For example, Kelly (2018)} But while the components of the plan will be \emph{introduced} in a staggered way, their \emph{impact} will be permanent and ongoing. So although the last tranche only comprises 29 per cent of the cost of the package over 10 years,\footnote{Treasury (2018c), p.2} it will cost approximately XX\% in each year thereafter.\footnote{Based on Grattan analysis: see Figure 1 above.}
+
+Consequently, none of the alternatives illuminate a discussion about fairness. A simple analysis of what proportion of income tax is paid by each decile is preferable.
+
+Of course, the optimal progressivity of a tax system is a fundamental value choice between more equal outcomes on the one hand, and less government intervention into the rewards that markets deliver on the other. If the tax cuts aim to shift the balance towards a more or less progressive tax system, that is a legitimate choice, but it should be made explicitly.
+
+This baseline also assumes that taxable income is a reasonable measure of total income. But in fact, taxable income excludes some capital gains,\footnote{Daley and Wood (2016)} and earnings from superannuation,\footnote{Daley and Coates (2016a); Daley and Coates (2016b)} which disproportionately benefit those with more taxable income. While these exclusions should be carefully scrutinised, that scrutiny is best undertaken by reviewing these policies directly rather than adjusting general rates of income tax.
+
+The progressivity of the tax system can be judged by looking at a proportion of all adults, all those who file a tax return, or all households.\footnote{See Gothe-Snape (2018)} Depending on the population chosen, the ``top 20 per cent'' pays a different share of income tax. In our view, it is better to analyse all taxfilers rather than all adults.\footnote{Analysis by Deloitte Access Economics looks at the percentage of tax paid by the top 20 per cent of adults: Greber (2018)} Most adults that do not file a tax return are retired households with little income other than the pension. These retirees are unlikely to pay income tax under any scenario. We think it is appropriate to exclude them from the analysis because the key issue in understanding the progressivity of the tax system is the distribution of the tax burden between those people who might plausibly pay income tax.
+
+Alternatively, the population of households can be analysed. This takes it account how a person's resources in practice depend on the total income of their household and the number of people in it.\footnote{Phillips (2018)} It also allows analysis to take into account welfare that depends on the household's income, such as Family Tax Benefit. However, data sources for households are less reliable and less detailed than the data available for individual taxpayers.
+
+\section{Bracket creep impact}\label{sec:bracket-creep-impact}
+
+At present, the top 20 per cent of income earners -- who earn XX per cent of taxable income -- pay 68.2 per cent of income tax. As shown in Table 1, without changes to income tax rates, bracket creep will make the system \emph{less} progressive.
+
+Although many think of ``bracket creep'' as a problem for high income earners, it most affects those in the middle of the income distribution (around \$50,000 taxable income per year). They are affected not because they move into a higher tax bracket, but because increases in income as a result of inflation are taxed at their \emph{marginal} tax rate, which is typically much higher than their \emph{average} tax rate. Overall, bracket creep affects people more if the percentage point difference between their average and marginal tax rate is large, and if their total income is relatively small.
+
+Table 1 -- Progressivity of income tax
+
+
+
+Based on distribution of taxable income in 2015-16, applying subsequent wage inflation, and 2017-18 tax scales
+
+Source: ATO (2018); Grattan analysis
+
+\section{Progressivity of the tax cuts}\label{sec:progressivity-of-the-tax-cuts}
+
+Taken as a whole, the Tax Plan will do little to unwind bracket creep's gradual reduction of the progressivity of the tax system. Even with the Plan, average tax rates are forecast to be higher for all taxpayers in 2027-28 -- except for very high-income earners who aren't much affected by bracket creep in the first place, as shown in Figure 2.
+
+Once fully implemented, the Tax Plan doesn't change the progressivity of the tax system much. Overall, those on high incomes will pay a similar proportion of total tax revenues with or without the Tax Plan. But because of bracket creep in the meantime, high income earners will be paying a lower proportion of income tax than today.
+
+Figure : Bracket creep hurts middle incomes most; the Tax Plan doesn't unwind this
+
+Average tax rates by taxable income percentile, \%
+
+%% \includegraphics[width=4.47847in,height=3.35885in]{media/image3.emf}
+
+
+Sources: Treasury (2018a); ATO (2018); Grattan analysis
+
+Under the Tax Plan, a person who earns more than 90 per cent of income earners (who earns \$120,000 today) will pay an average tax rate of 29 per cent in 2027-28, unchanged from today. In contrast, average tax rates for middle-income earners will be higher. The average tax rate for a taxpayer who earns \$36,000-a-year today (more than 40 per cent of other taxpayers) will increase 6 percentage points (from 10 to 16 per cent).
+
+As a result, higher-income taxpayers will bear a lower share of the total tax burden, as shown in Table 1. Analysis of household quintiles provides similar results, although these results are less fine-grained than our analysis of taxpayers.\footnote{Phillips et al (2018)} Published analysis of all adults appears to differ in suggesting that the top 20 per cent of adults -- approximately the top 40 per cent of taxfilers -- will pay a greater percentage of income tax in 2024-25 than in 2017-18,\footnote{Greber (2018)} but to date we have been unable to reproduce this analysis with publicly available data.
+
+Overall, the Tax Plan itself has a similar effect on most taxfilers. The various components of the package collectively reduce average tax rates by around 2 percentage points for almost all taxpayers in a way that is so remarkably flat that it looks as though they were designed that way -- and perhaps they were. The only exception is that the top 1 per cent get less of a tax cut as a proportion of their income, while the top 2 to 6 per cent get a bit more, as shown in Figure 3.
+
+Figure : Bracket creep hurts middle incomes most; the Tax Plan provides similar relief across the board apart from the top decile
+
+Change in average tax rates by taxable income percentile, \%
+
+%% \includegraphics[width=4.47847in,height=3.35885in]{media/image4.emf}
+
+
+Sources: Treasury (2018a); ATO (2018); Grattan analysis
+
+The overall progressivity of a tax system can be measured using the Reynolds-Smolensky index. This calculates how much a tax system redistributes towards equal post-tax incomes, given the distribution of pre-tax incomes.
+
+As shown in Figure 4, the Australian income tax system became more progressive between 2012 and 2016. Without change, bracket creep will make the system less progressive. The first stages of the Tax Plan will make it more progressive; the final tranche will make it less progressive.
+
+Figure : Using the Reynolds-Smolensky measure, bracket creep will make income tax less progressive; and the Tax Plan will make it even worse
+
+Reynolds-Smolensky index of tax system progressivity (higher = more progressive)
+
+%% \includegraphics[width=4.47847in,height=3.35885in]{media/image5.emf}
+
+
+Notes: Assumes ALP replicates Coalition tax plan for 2018-19. In 2019-20 ALP is assumed to offer a tax offset of \$350 a year to those earning less than \$37,000; between \$350 and \$928 a year for those earning between \$37,000 and \$48,000; the full \$928 a year for those earning between \$48,000 and \$90,000 and tapers at a rate of 2.625 cents per \$1 for those on incomes of between \$90,000 and \$125,333. Includes the increase in 37\% tax rate threshold from \$87,000 to \$90,000 from 2018-19.
+
+Sources: Treasury (2018a); ATO (2018); Grattan analysis
+
+\section{Sensitivity analysis}\label{sec:sensitivity-analysis}
+
+The impact of bracket creep and the tax package are very sensitive to future growth in incomes. Our analysis has assumed the wages growth projected in the 2018-19 Budget, of 3.5 per cent per year from 2020-21.\footnote{Treasury (2018a), p.1-10} Many have suggested that this is too high, given much lower wages growth in Australia and around the world for an extended period.\footnote{For example, Knaus (2018)}
+
+If income growth is lower, then bracket creep will be less regressive, as Table 2 shows. The effect of lower wage growth on the Tax Plan will be mixed: it will give more to low income households (who stay within the expanded LITO); and help those in the 7\textsuperscript{th} 8\textsuperscript{th} and 9\textsuperscript{th} deciles less (because they will get less benefit from the reduction in tax rate to 32.5c for incomes over \$87,000). Overall, bracket creep and the Tax Package will reduce the progressivity of the system a little less than if wage growth is at 2.75 per cent rather than 3.5 per cent as projected by the Budget.
+
+\section{Other analysis}\label{sec:other-analysis}
+
+Other analysis has highlighted that without the Tax Plan, ``average and middle-income earners'' -- i.e. those earning the equivalent of \$76,000 a year today -- will be in a higher tax bracket.\footnote{For example, Benson (2018)} Such analysis proves nothing about the fairness or otherwise of the tax package.
+
+Those earning \$76,000 today earn more than XX\% of income earners -- they are hardly ``middle income'' earners.
+
+Moving into a higher tax bracket means that bracket creep starts to have a bigger effect on a taxpayer. But the overall effect of bracket creep may still be larger for those on lower incomes, even if they have not just tipped over into a new tax bracket.
+
+\chapter{}\label{chap:section-2}
+
+Table 2 -- Lower wages growth would make bracket creep and the Tax Package less regressive over the decade
+
+Share of income tax paid
+
+
+
+Notes: Assumes wages growth of 2.75\% from 2018-19. Based on distribution of taxable income in 2015-16
+
+Source: ATO (2018); Grattan analysis
+
+\chapter{Cutting room}\label{chap:cutting-room}
+
+On these assumptions, as shown in Figure 1, the first tranche of the tax cuts, which introduces a Low and Middle Income Tax Offset (which we have named the ``Lamington'' for convenience), and cuts the tax rate to 32.5c for income between \$87,000 and \$90,000, will reduce tax collections by \$5 billion in 2021-22. The second tranche, which replaces the Lamington by increasing the LITO to \$645 and cutting the tax rate to 19c for income between \$37,000 and \$41,000, and cuts the tax rate to 32.5c for incomes between \$90,000 and \$120,000, will reduce tax collections by a further \$6 billion in 2022--23. The third tranche, which cuts the tax rate to 32.5c for income between \$120,000 and \$200,000, will reduce tax collections by a further \$11 billion in 2024-25.\footnote{Our calculations roughly correspond to published Treasury projections of the cumulative impact of the package components, but may vary somewhat due to differences in the timing of collections.} This third tranche, will ultimately comprise about half the annual cost of the Personal Income Tax Plan.
+
+New Grattan Institute analysis highlights that most of the revenue reductions from the Turnbull Government's full Personal Income Tax Plan are the result of lower taxes on high-income earners. Once the three-stage plan -- including removing the 37c bracket -- is complete, \textbf{\$15 billion} of the annual \textbf{\$25 billion cost} of the plan will result from collecting less tax from the top 20\% of income earners, who currently have a taxable income of \$87,000 or more.
+
+%% \includegraphics[width=5.00070in,height=3.75052in]{media/image6.png}
+
+
+By 2024-25, the income tax cuts are much larger for high-income earners, in absolute terms. Those in the top 20 per cent will get an average tax cut of \$4,600 a year, compared to \$700 a year for someone in the second income quintile (\$24,000 - \$48,000).
+
+%% \includegraphics[width=5.00694in,height=3.75000in]{media/image7.emf}
+
+
+\chapter{References}\label{chap:references}
+
+ATO (2018) \emph{Taxation statistics: 2015-16 individuals sample file}, Australian Tax Office
+
+Benson, S. (2018) ``Turnbull's tax plan targets middle class'', \emph{The Australian}, 26 May 2018 from \url{https://www.theaustralian.com.au/national-affairs/treasury/turnbulls-tax-plan-targets-middle-class/news-story/17ad2257df93adc28c6ce503a3a164be}
+
+Daley, J. and Coates, B. (2016a) \emph{Super tax targeting}, Grattan Institute from \url{https://grattan.edu.au/report/super-tax-targeting/}
+
+Daley, J. and Coates, B. (2016b) \emph{A better super system: assessing the 2016 tax reforms}, Grattan Institute from \url{https://grattan.edu.au/report/a-better-super-system-assessing-the-2016-tax-reforms/}
+
+Daley, J. and Wood, D. (2016) \emph{Hot property: negative gearing and capital gains tax}, Grattan Institute from \url{https://grattan.edu.au/report/hot-property/}
+
+Daley, J. and Wood, D (2018) ``The Coalition's tax plan favours the rich and doesn't solve bracket creep for middle-income earners'', \emph{ABC,} 11 May 2018 from \url{http://www.abc.net.au/news/2018-05-11/the-coalitions-tax-plan-favours-the-rich/9748796}
+
+Gothe-Snape, J. (2018) ``How much tax do the rich actually pay? It depends on how you do the numbers'', \emph{ABC,} 22 May 2018 from \url{http://www.abc.net.au/news/2018-05-22/tax-paid-by-the-wealthy-depends-on-how-you-do-the-numbers/9784536}
+
+Greber, J. (2018) ``Both tax plans hit the rich, says Deloitte'' \emph{Australian Financial Review}, 20 May 2018 from \url{http://www.afr.com/news/policy/tax/coalition-tax-cuts-arent-evil--just-maths-says-richardson-20180518-h1091x}
+
+Murphy, K. (2018) ``Coalition says costings for budget's tax measures too `unreliable' to release'', \emph{The Guardian}, 13 May 2018 from \url{https://www.theguardian.com/australia-news/2018/may/13/coalition-says-costings-for-budgets-tax-measures-too-unreliable-to-release}
+
+Kelly, P. (2018) ``Labor, Coalition confront critical tax decisions'', \emph{The Australian}, 26 May 2018 from \url{https://www.theaustralian.com.au/news/inquirer/labor-coalition-confront-critical-tax-decisions/news-story/2ea7bce183fbdde22b7316fbc769dcbb}
+
+Knaus, C. ``Q\&A recap: budget wage growth forecast is `heroic', business group says'', \emph{The Guardian}, 15 May 2018 from \url{https://www.theguardian.com/australia-news/2018/may/15/qa-recap-budget-wage-growth-forecast-is-heroic-business-group-says}
+
+Phillips B., Webster R., and Gray, M. (2018), \emph{Modelling of the 2018-19 Federal Budget Personal Income Tax Measures}, Centre for Social Research \& Methods from \url{http://csrm.cass.anu.edu.au/sites/default/files/docs/CSRM_Research_Note_Federal-Budget-2018-19.pdf}
+
+Reynolds, M. and Smolensky E. (1977), \emph{Public Expenditures, Taxes and the Distribution of Income: The United States, 1950, 1961, 1970}, Academic Press.
+
+Treasury (2006) \emph{Budget 2006-07: Budget Paper 2,} The Treasury from \url{https://www.budget.gov.au/2006-07/bp2/download/bp2.pdf}
+
+Treasury (2007) \emph{Budget 2007-08: Budget Paper 2,} The Treasury from \url{https://budget.gov.au/2007-08/bp2/html/index.htm}
+
+Treasury (2018a) \emph{Budget 2017-18: Budget Paper 1,} The Treasury from \url{https://www.budget.gov.au/2018-19/content/bp1/download/BP1_full.pdf}
+
+Treasury (2018b) \emph{Budget 2017-18: Stronger growth to create more jobs,} The Treasury from \url{https://www.budget.gov.au/2018-19/content/sections/jobs/downloads/Stronger_growth_to_create_more_jobs_.pdf}
+
+Treasury (2018c) \emph{Personal Income Tax Plan -- further information,} The Treasury from \url{https://static.treasury.gov.au/uploads/sites/1/2018/05/Senate-Estimates-May-2018-Attachment-1.pdf}
 
 \end{document}
