@@ -10,7 +10,7 @@
 \title{Submission to the Senate Economics Legislation Committee inquiry into the Treasury Laws Amendment (Personal Income Tax Plan) Bill 2018}
 \author{Danielle Wood, John Daley, and Hugh Parsonage}
 
-<<knitr>>=
+<<knitr, include=FALSE>>=
 library(knitr)
 library(grattanCharts)
 knitting <- is_knitting()
@@ -175,7 +175,7 @@ bound_models %>%
 %% \includegraphics[width=4.47847in,height=3.35885in]{media/image2.emf}
 
 
-\noteswithsource{Assumes wages and population growth as per 2018-19 Budget, wage growth uniform across the wages distribution. Excludes interaction effects (\textless{}\$0.5bn in any year).}%
+\noteswithsource{Assumes wages and population growth as per 2018-19 Budget.}%
 {\textcite{ATO2018}; Grattan analysis}
 \end{figure}
 
@@ -271,8 +271,6 @@ p1718 <-
   .[]
 @
 
-At present, the top 20 per cent of income earners -- who earn \Sexpr{grattan_percent(p1718[.(5)][["inc"]])} of taxable income -- pay \Sexpr{grattan_percent(p1718[.(5)][["tax"]])} per cent of income tax. As shown in \Vref{tbl:1}, without changes to income tax rates, bracket creep will make the system \emph{less} progressive.
-
 \begin{table}
 \caption{Progressivity of proposal to personal income tax}\label{tbl:1}
 <<Table1, results='asis', warning=FALSE>>=
@@ -305,6 +303,10 @@ cbind(share_inc,
 @
 \end{table}
 
+At present, the top 20 per cent of income earners -- who earn \Sexpr{grattan_percent(p1718[.(5)][["inc"]])} of taxable income -- pay \Sexpr{grattan_percent(p1718[.(5)][["tax"]])} per cent of income tax. As shown in \Vref{tbl:1}, without changes to income tax rates, bracket creep will make the system \emph{less} progressive.
+
+
+
 Although many think of ``bracket creep'' as a problem for high income earners, it most affects those in the middle of the income distribution (around \$50,000 taxable income per year). They are affected not because they move into a higher tax bracket, but because increases in income as a result of inflation are taxed at their \emph{marginal} tax rate, which is typically much higher than their \emph{average} tax rate. Overall, bracket creep affects people more if the percentage point difference between their average and marginal tax rate is large, and if their total income is relatively small.
 
 
@@ -332,7 +334,8 @@ fread("~/grattan/vignettes/long-vignettes/avg_tax_rates-by-facet-percentile.csv"
                    label.size = NA,
                    size = 6.14,
                    box.padding = 0.5,
-                   force = 3,
+                   point.padding = 0.3,
+                   force = 4,
                    na.rm = TRUE)
 @
 
@@ -355,7 +358,7 @@ Overall, the Tax Plan itself has a similar effect on most taxfilers. The various
 \begin{figure}
 \caption{Bracket creep hurts middle incomes most; the Tax Plan provides similar relief across the board apart from the top decile }\label{fig:3}
 \units{Average tax rates by taxable income percentile, \%}
-<<>>=
+<<fig3, fig.height = 1.2*fig_height, out.height = paste0(1.2*out_height, "in")>>=
 avg_tax_by_perc1718 <- 
   s1718[, avg_tax := coalesce(tax / Taxable_Income, 0)] %>%
   .[, Percentile := weighted_ntile(Taxable_Income, n = 100)] %>%
@@ -374,7 +377,8 @@ bound_models %>%
   .[, c("Budget2018", "Budget2018_baseline") := NULL] %>%
   .[, avg_tax := NULL] %>%
   melt(id.vars = "Percentile") %>%
-  .[Percentile == 50, label := as.character(variable)] %>%
+  .[Percentile == 24 & grepl("Bracket", variable), label := as.character(variable)] %>%
+  .[Percentile == 60 & !grepl("Bracket", variable), label := as.character(variable)] %>%
   grplot(aes(x = Percentile, y = value, color = variable, group = variable)) + 
   geom_line() +
   scale_y_continuous(label = function(x) if_else(x < 0,
@@ -384,9 +388,9 @@ bound_models %>%
                    label.size = NA,
                    family = "helvet",
                    size = 6.14,
-                   nudge_y = -0.005,
                    box.padding = 0.5,
-                   force = 3,
+                   point.padding = 0.3,
+                   force = 4,
                    na.rm= TRUE)
 @
 \end{figure}
