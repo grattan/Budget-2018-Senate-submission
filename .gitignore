@@ -62,3 +62,4 @@ grattex.sublime-project
 *.log2
 .httr-oauth
 data/bound-models.fst
+data/*.fst
