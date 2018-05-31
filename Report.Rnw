@@ -166,7 +166,8 @@ bound_models %>%
   .[id == "Budget2018",
     .(y = sum(WEIGHT * delta / 1e9)), 
     keyby = "fy_year"] %>%
-  .[, "Financial year ending" := fy2yr(fy_year)] %>%
+  .[, "Financial year ending" := fy2yr(fy_year)] %T>%
+  fwrite("atlas/fig1.csv") %>%
   grplot(aes(x = `Financial year ending`,
              y = y)) +
   geom_col(fill = DarkOrange, width = 1) + 
@@ -324,7 +325,8 @@ fread("~/grattan/vignettes/long-vignettes/avg_tax_rates-by-facet-percentile.csv"
               "Budget2018", 
               "Budget2018_baseline")] %>%
   .[fy_year %in% c("2017-18", "2027-28")] %>%
-  .[Taxable_Income_percentile == 50, label := facet] %>%
+  .[Taxable_Income_percentile == 50, label := facet] %T>%
+  fwrite("atlas/fig2.csv") %>%
   grplot(aes(x = Taxable_Income_percentile, y = avg_tax_rate, color = facet)) + 
   geom_line() + 
   xlab("Percentile of taxfilers") +
@@ -366,6 +368,7 @@ avg_tax_by_perc1718 <-
 
 bound_models %>%
   .[id %in% c("Budget2018", "Budget2018_baseline")] %>%
+  .[fy_year == "2027-28"] %>%
   .[, Percentile := weighted_ntile(Taxable_Income, n = 100), keyby = "id"] %>%
   .[, .(avg_tax = mean(coalesce(new_tax / Taxable_Income, 0))), 
     keyby = .(id, Percentile)] %>%
@@ -378,7 +381,8 @@ bound_models %>%
   .[, avg_tax := NULL] %>%
   melt(id.vars = "Percentile") %>%
   .[Percentile == 24 & grepl("Bracket", variable), label := as.character(variable)] %>%
-  .[Percentile == 60 & !grepl("Bracket", variable), label := as.character(variable)] %>%
+  .[Percentile == 60 & !grepl("Bracket", variable), label := as.character(variable)] %T>%
+  fwrite("atlas/avg-tax-rates-v-percentile.csv") %>%
   grplot(aes(x = Percentile, y = value, color = variable, group = variable)) + 
   geom_line() +
   scale_y_continuous(label = function(x) if_else(x < 0,
