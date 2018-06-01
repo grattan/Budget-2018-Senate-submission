@@ -40,7 +40,7 @@ if (isTRUE(getOption('knitr.in.progress'))) {
            regular = file.path(helvet_path, "uhvr8a.pfb"),
            bold = file.path(helvet_path, "uhvb8a.pfb"),
            italic = file.path(helvet_path, "uhvro8a.pfb"))
-  grplot <- function(dat, ...) {
+  grplot <- function(data, ..., dat = data) {
     if (nrow(dat) < 500 && knitting) {
       chart_data(dat)
     }
@@ -359,7 +359,7 @@ Overall, the Tax Plan itself has a similar effect on most taxfilers. The various
 
 \begin{figure}
 \caption{Bracket creep hurts middle incomes most; the Tax Plan provides similar relief across the board apart from the top decile }\label{fig:3}
-\units{Average tax rates by taxable income percentile, \%}
+\units{Average tax rates by taxable income percentile}
 <<fig3, fig.height = 1.2*fig_height, out.height = paste0(1.2*out_height, "in")>>=
 avg_tax_by_perc1718 <- 
   s1718[, avg_tax := coalesce(tax / Taxable_Income, 0)] %>%
@@ -374,7 +374,7 @@ bound_models %>%
     keyby = .(id, Percentile)] %>%
   dcast(Percentile ~ id, value.var = "avg_tax") %>%
   .[avg_tax_by_perc1718, on = "Percentile"] %>%
-  .[, "Bracket creep by 2027-28" := Budget2018_baseline - avg_tax] %>%
+  .[, "Bracket creep\nby 2027-28" := Budget2018_baseline - avg_tax] %>%
   .[, "Net change to 2027-28\nincluding impact of PIT" := Budget2018 - avg_tax] %>%
   .[, "Impact of PIT on average tax filers" := Budget2018 - Budget2018_baseline] %>%
   .[, c("Budget2018", "Budget2018_baseline") := NULL] %>%
@@ -383,19 +383,49 @@ bound_models %>%
   .[Percentile == 24 & grepl("Bracket", variable), label := as.character(variable)] %>%
   .[Percentile == 60 & !grepl("Bracket", variable), label := as.character(variable)] %T>%
   fwrite("atlas/avg-tax-rates-v-percentile.csv") %>%
-  grplot(aes(x = Percentile, y = value, color = variable, group = variable)) + 
-  geom_line() +
-  scale_y_continuous(label = function(x) if_else(x < 0,
-                                                 paste0("\u2212", abs(x)),
-                                                 as.character(x))) +
-  geom_label_repel(aes(label = label),
-                   label.size = NA,
-                   family = "helvet",
-                   size = 6.14,
-                   box.padding = 0.5,
-                   point.padding = 0.3,
-                   force = 4,
-                   na.rm= TRUE)
+  {
+    grplot(data = ., aes(x = Percentile, y = value, color = variable, group = variable)) + 
+      geom_line() +
+      scale_y_continuous(label = function(x) if_else(x < 0,
+                                                     paste0("\u2212", percent(abs(x))),
+                                                     as.character(percent(x)))) +
+      geom_label_repel(data = subset(., grepl("^Bracket", variable)),
+                       xlim = c(0, 30),
+                       ylim = c(0, NA),
+                       aes(label = label),
+                       label.size = NA,
+                       family = "helvet",
+                       size = 6.14,
+                       box.padding = 0.5,
+                       point.padding = 0.3,
+                       force = 4,
+                       na.rm = TRUE) +
+      geom_label_repel(data = subset(., grepl("^Net", variable)),
+                       # between the lines
+                       xlim = c(25, NA),
+                       ylim = c(0, max(.[grepl("^Net", variable)][["value"]])),
+                       aes(label = label),
+                       label.size = NA,
+                       family = "helvet",
+                       size = 6.14,
+                       box.padding = 0.5,
+                       point.padding = 0.3,
+                       force = 4,
+                       na.rm= TRUE) +
+      geom_label_repel(data = subset(., grepl("^Impact", variable)),
+                       # between the lines
+                       xlim = c(0, 50),
+                       ylim = c(NA,
+                                1.1 * min(.[Percentile < 50][grepl("^Impact", variable)][["value"]])),
+                       aes(label = label),
+                       label.size = NA,
+                       family = "helvet",
+                       size = 6.14,
+                       box.padding = 0.5,
+                       point.padding = 0.3,
+                       force = 4,
+                       na.rm= TRUE)
+  }
 @
 \end{figure}
 
