@@ -90,7 +90,13 @@ if (isTRUE(getOption('knitr.in.progress'))) {
 @
 
 <<bound_models>>=
-bound_models <- read_fst("data/bound-models.fst", as.data.table = TRUE)
+bound_models <- 
+  read_fst("data/bound-models.fst",
+           as.data.table = TRUE, 
+           columns = c("id", "fy_year", "delta", "WEIGHT",
+                       "Taxable_Income", 
+                       "new_tax", 
+                       "baseline_tax"))
 @
 
 <<costing202425>>=
