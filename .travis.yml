@@ -19,7 +19,7 @@ r_github_packages:
 
 before_install:
   - source ./travis/texlive.sh
-  - tlmgr install acronym bigfoot blindtext chngcntr cmap nowidow mdframed navigator needspace tablefootnote tocloft xpatch multirow bbding mathastext isomath relsize
+  - tlmgr install acronym bigfoot blindtext chngcntr cmap dblfloatfix nowidow mdframed navigator needspace tablefootnote tocloft xpatch multirow bbding mathastext isomath relsize
   - if [ $TRAVIS_REPO_SLUG == "HughParsonage/grattex" ]; then tlmgr install tex-gyre eulervm bold-extra fancyvrb realboxes manfnt lstaddons; fi
   # pdftotext
   - if [ $TRAVIS_REPO_SLUG == "HughParsonage/grattex" ]; then sudo apt-get install poppler-utils; fi
@@ -36,6 +36,9 @@ before_script:
     - tar xzf biber-linux_x86_64.tar.gz
     - export PATH=$PATH:$PWD
     - tlmgr update biber chngcntr
+    - Rscript -e 'sapply(dir(pattern = "concordance.tex"), file.remove)'
+    # Remove knitr interference
+    - Rscript make.R
     # - Rscript -e 'if (!requireNamespace("hunspell", quietly = TRUE)) system("sudo apt-get install -y r-cran-rcpp r-cran-bh r-cran-stringi r-cran-hunspell")'
     - Rscript -e 'install.packages(c("devtools"), quiet = TRUE)'
     - Rscript -e 'devtools::install_github("Rdatatable/data.table", quiet = TRUE, quick = TRUE)'
@@ -46,7 +49,9 @@ before_script:
 
 script: 
   - set -e
-  # - for i in *.tex; do pdflatex -interaction=nonstopmode $i ; done
+  - for i in *.tex; do pdflatex -interaction=nonstopmode $i ; done
+  - biber Report
+  - pdflatex Report
   - Rscript -e 'library(grattanReporter);checkGrattanReport(compile = TRUE, pre_release = TRUE, .proceed_after_rerun = 3)'
   - for i in *.tex; do pdflatex -interaction=nonstopmode $i > /dev/null 2>&1; done
   - if [ $TRAVIS_REPO_SLUG == "HughParsonage/grattex" ]; then Rscript tests/test_grattex.R; fi

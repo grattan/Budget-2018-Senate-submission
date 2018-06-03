@@ -1,7 +1,4 @@
-\documentclass[submission]{grattan}
-\usepackage{dblfloatfix}
-
-\usepackage[]{graphicx}\usepackage[]{color}
+\documentclass[submission]{grattan}\usepackage[]{graphicx}\usepackage[]{color}
 %% maxwidth is the original width if it is less than linewidth
 %% otherwise use linewidth (to make sure the graphics do not exceed the margin)
 \makeatletter
@@ -52,6 +49,7 @@
 \newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
 
 \usepackage{alltt}
+\usepackage{dblfloatfix}
 \usepackage{longtable}
 
 % add_to_dictionary: taxfilers lamington LITO bn perc
@@ -185,7 +183,7 @@ For example, with no changes to tax rates, as wages grow, the top bracket will i
 
 The \textbf{percentage of tax savings under the Tax Plan over eleven years} provides no insight into progressivity. Some have argued that the Tax Plan is fair because the third stage is only a minority of the total revenue foregone over the next eleven years.\footnote{For example, \textcite{Kelly2018}.}
 But while the components of the Tax Plan will be \emph{introduced} in a staggered way, their \emph{impact} will be permanent and ongoing. So although the last tranche comprises only 29 per cent of the cost of the package over eleven years,\footcite[][2]{Treasury2018c}
-it will cost approximately 40 per cent in each year thereafter.\footnote{Based on Grattan analysis: see \Vref{fig:1} above.}
+it will cost approximately 40~per~cent in each year thereafter.\footnote{Based on Grattan analysis: see \Vref{fig:1} above.}
 
 Consequently, none of the alternatives illuminate a discussion about fairness. A simple analysis of what proportion of income tax is paid by each decile is preferable.
 
@@ -195,7 +193,7 @@ This baseline also assumes that taxable income is a reasonable measure of total 
   \footcites{DaleyCoatesWood-2015-Super-tax-targeting}{Daley-etal-2016-Assessing-2016-super-tax-reforms} which disproportionately benefit those with more taxable income. While these exclusions should be carefully scrutinised, that scrutiny is best undertaken by reviewing these policies directly rather than adjusting general rates of income tax.
 
 The progressivity of the tax system can be judged by looking at a proportion of all adults, all those who file a tax return, or all households.\footcite{Gothe}
-Depending on the population chosen, the ``top 20 per cent'' pays a different share of income tax. 
+Depending on the population chosen, the ``top 20 per cent'' pays a different share of income tax.
 
 In our view, it is better to analyse all taxfilers rather than all adults.\footnote{Analysis by Deloitte Access Economics looks at the percentage of tax paid by the top 20 per cent of adults: \textcite{Greber}.}
 Most adults who do not file a tax return are retirees with little income other than the pension. These retirees are unlikely to pay income tax under any scenario. We think it is appropriate to exclude them from the analysis because the key issue in understanding the progressivity of the tax system is the distribution of the tax burden between those people who might plausibly pay income tax.
@@ -204,22 +202,22 @@ Alternatively, the population of households can be analysed. This takes it accou
   \footcite{Phillips2018}
 It also allows analysis to take into account welfare that depends on the household's income, such as Family Tax Benefit. However, data sources for households are less reliable and less detailed than the data available for individual taxpayers.
 
+
+
 \section{Bracket creep impact}\label{sec:bracket-creep-impact}
-
-
 
 \begin{table}[H]
 \caption{Bracket creep will make the tax system less progressive; the Tax Plan does little to unwind this}\label{tbl:1}
 % latex table generated in R 3.5.0 by xtable 1.8-2 package
-% Thu May 31 08:25:02 2018
+% Mon Jun 04 00:48:01 2018
 \begin{tabularx}{\columnwidth}{rRRRR}
   \toprule
    &  & \multicolumn{3}{c}{\textbf{Share of income tax}}\\
  \cmidrule(lr){3-5}
  \textbf{Percentile} & \textbf{Share of income} & \textbf{2017-18} & \textbf{2027-28 baseline} & \textbf{2027-28 budget}\\
  \midrule
-1-10 & 0.4\% & 0.0\% & 0.0\% & 0.0\% \\ 
-  11-20 & 2.2\% & 0.0\% & 0.0\% & 0.0\% \\ 
+1-10 & 0.4\% & 0\% & 0\% & 0\% \\ 
+  11-20 & 2.2\% & 0\% & 0\% & 0\% \\ 
   21-30 & 3.6\% & 0.4\% & 0.8\% & 0.7\% \\ 
   31-40 & 5.0\% & 1.6\% & 2.2\% & 2.1\% \\ 
   41-50 & 6.5\% & 3.4\% & 4.2\% & 4.2\% \\ 
@@ -234,16 +232,17 @@ It also allows analysis to take into account welfare that depends on the househo
 
 \end{table}
 
+
 At present, the top 20 per cent of income earners -- who earn 51~per~cent of taxable income -- pay 68~per~cent of income tax. As shown in \Vref{tbl:1}, without changes to income tax rates, bracket creep will make the system \emph{less} progressive, and they will only pay 66~per~cent of income tax.
 
 
 
-Although many think of ``bracket creep'' as a problem for high-income earners, it most affects those in the middle of the income distribution (around \$44,000 taxable income per year). They are affected not because they move into a higher tax bracket, but because increases in income as a result of inflation are taxed at their \emph{marginal} tax rate, which is typically much higher than their \emph{average} tax rate. Overall, bracket creep affects people more if the percentage point difference between their average and marginal tax rate is large, and if their total income is relatively small.
+Although many think of ``bracket creep'' as a problem for high income earners, it most affects those in the middle of the income distribution (around \$45,000 taxable income per year). They are affected not because they move into a higher tax bracket, but because increases in income as a result of inflation are taxed at their \emph{marginal} tax rate, which is typically much higher than their \emph{average} tax rate. Overall, bracket creep affects people more if the percentage point difference between their average and marginal tax rate is large, and if their total income is relatively small.
 
 
 \section{Progressivity of the tax cuts}\label{sec:progressivity-of-the-tax-cuts}
 
-Taken as a whole, the Tax Plan will not unwind bracket creep's gradual reduction of the progressivity of the tax system. Even with the Tax Plan, average tax rates are forecast to be higher for all taxpayers in 2027-28 -- except for very high-income earners who aren't much affected by bracket creep in the first place, as shown in \Vref{fig:bracket-creep-hurts-middle-incomes-most}.
+Taken as a whole, the Tax Plan will not unwind bracket creep's gradual reduction of the progressivity of the tax system. Even with the Tax Plan, average tax rates are forecast to be higher for all taxpayers in 2027\nobreakdash-28 -- except for very high-income earners who aren't much affected by bracket creep in the first place, as shown in \Vref{fig:bracket-creep-hurts-middle-incomes-most}.
 
 \begin{figure}
 \caption{Bracket creep hurts middle incomes most; the Tax Plan doesn't unwind this}\label{fig:bracket-creep-hurts-middle-incomes-most}
@@ -269,7 +268,7 @@ One published analysis appears to differ. It suggests that the top 20 per cent o
 Overall, the Tax Plan itself has a similar effect on the majority of taxfilers. The various components of the package collectively reduce average tax rates by around 1 percentage points for most middle income taxpayers. But they reduce tax for the top 20 per cent of taxpayers by substantially more -- around 2 to 3 per cent of income. The exception are the top 1 per cent, who get less -- their tax cut is only worth only about 1 per cent of their income, as shown in \Vref{fig:3}.
 
 \begin{figure}
-\caption{Bracket creep hurts middle incomes most; the Tax Plan provides similar relief across the board apart from the top two deciles }\label{fig:3}
+\caption{Bracket creep hurts middle incomes most; the Tax Plan provides similar relief across the board apart from the top two deciles}\label{fig:3}
 \units{Percentage point change in average tax rates, by taxable income percentile}
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
@@ -297,7 +296,7 @@ As shown in \Vref{fig:progressivity}, on this measure the Australian income tax 
 
 \section{Sensitivity analysis}\label{sec:sensitivity-analysis}
 
-The impact of bracket creep and the tax package vary depending future growth in incomes. Our analysis has assumed the wages growth projected in the 2018-19 Budget, of 3.5 per cent per year from 2020-21.%
+The impact of bracket creep and the tax package vary depending on future growth in incomes. Our analysis has assumed the wages growth projected in the 2018-19 Budget, of 3.5 per cent per year from 2020-21.%
   \footcite[][1--10]{Treasury2018a}
 Many have suggested that this is too high, given much lower wages growth in Australia and around the world for an extended period.\footnote{For example, \textcite{Knaus}.}
 
@@ -308,7 +307,8 @@ If income growth is lower, then bracket creep will be less regressive, as \Vref{
 Other analysis has highlighted that without the Tax Plan, ``average and middle-income earners'' -- \ie~those earning the equivalent of \$76,000 a year today -- will be in a higher tax bracket.
   \footcite{Benson}
 But such analysis proves nothing about the fairness or otherwise of the tax package.
-Those earning \$76,000 today earn more than 75~per~cent of income earners -- they are hardly ``middle income'' earners. 
+Those earning \$76,000 today earn more than 75~per~cent of income earners -- they are hardly ``middle income'' earners.
+
 And even if such people have moved into a higher tax bracket, bracket creep will continue to have more effect on lower-income earners.
 
 \vspace{3\baselineskip}
@@ -317,7 +317,7 @@ And even if such people have moved into a higher tax bracket, bracket creep will
 \begin{table}[H]
 \caption{Lower wages growth would make bracket creep and the Tax Package less regressive over the decade}\label{tbl:2}
 % latex table generated in R 3.5.0 by xtable 1.8-2 package
-% Thu May 31 08:25:06 2018
+% Mon Jun 04 00:48:03 2018
 \begin{tabularx}{\textwidth}{rRRRRRR}
   \toprule
    & \multicolumn{3}{c}{\textbf{Budget assumptions}} & \multicolumn{3}{c}{\textbf{2.75\% wage growth}}\\
@@ -334,7 +334,7 @@ And even if such people have moved into a higher tax bracket, bracket creep will
   71-80 & 12.1\% & 12.2\% & 12.3\% & 12.1\% & 12.1\% & 12.3\% \\ 
   81-90 & 17.8\% & 17.9\% & 17.7\% & 17.8\% & 17.8\% & 17.7\% \\ 
   91-99 & 32.9\% & 32.2\% & 31.5\% & 32.9\% & 32.3\% & 31.5\% \\ 
-  Top 1\% & 17.5\% & 15.3\% & 15.9\% & 17.5\% & 15.8\% & 16.3\% \\ 
+  1\% & 17.5\% & 15.3\% & 15.9\% & 17.5\% & 15.8\% & 16.3\% \\ 
    \bottomrule
 \end{tabularx}
 

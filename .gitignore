@@ -14,9 +14,7 @@ $RECYCLE.BIN/
 *.lnk
 # =========================
 # Operating System Files
-# =========================
 # OSX
-# =========================
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -61,3 +59,6 @@ grattex.sublime-project
 *.sublime-workspace
 *.log2
 .httr-oauth
+data/bound-models.fst
+data/*.fst
+Report-concordance.tex
