@@ -478,7 +478,6 @@ If income growth is lower, then bracket creep will be less regressive, as \Vref{
 Other analysis has highlighted that without the Tax Plan, ``average and middle-income earners'' -- \ie~those earning the equivalent of \$76,000 a year today -- will be in a higher tax bracket.
   \footcite{Benson}
 But such analysis proves nothing about the fairness or otherwise of the tax package.
-
 Those earning \$76,000 today earn more than \Sexpr{grattan_percent(mean(s1718$Taxable_Income <= 76e3))} of income earners -- they are hardly ``middle income'' earners.
 
 And even if such people have moved into a higher tax bracket, bracket creep will continue to have more effect on lower-income earners.
