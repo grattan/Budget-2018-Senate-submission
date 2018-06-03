@@ -49,7 +49,9 @@ before_script:
 
 script: 
   - set -e
-  # - for i in *.tex; do pdflatex -interaction=nonstopmode $i ; done
+  - for i in *.tex; do pdflatex -interaction=nonstopmode $i ; done
+  - biber Report
+  - pdflatex Report
   - Rscript -e 'library(grattanReporter);checkGrattanReport(compile = TRUE, pre_release = TRUE, .proceed_after_rerun = 3)'
   - for i in *.tex; do pdflatex -interaction=nonstopmode $i > /dev/null 2>&1; done
   - if [ $TRAVIS_REPO_SLUG == "HughParsonage/grattex" ]; then Rscript tests/test_grattex.R; fi
