@@ -38,7 +38,7 @@ before_script:
     - tlmgr update biber chngcntr
     - Rscript -e 'sapply(dir(pattern = "concordance.tex"), file.remove)'
     # Remove knitr interference
-    - Rscript -e 'writeLines(sub("^(\\\\documentclass.*grattan\\}).*$", "\\1", readLines("Report.tex")), "Report.tex")'
+    - Rscript make.R
     # - Rscript -e 'if (!requireNamespace("hunspell", quietly = TRUE)) system("sudo apt-get install -y r-cran-rcpp r-cran-bh r-cran-stringi r-cran-hunspell")'
     - Rscript -e 'install.packages(c("devtools"), quiet = TRUE)'
     - Rscript -e 'devtools::install_github("Rdatatable/data.table", quiet = TRUE, quick = TRUE)'

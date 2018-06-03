@@ -471,7 +471,7 @@ The impact of bracket creep and the tax package vary depending on future growth 
   \footcite[][1--10]{Treasury2018a}
 Many have suggested that this is too high, given much lower wages growth in Australia and around the world for an extended period.\footnote{For example, \textcite{Knaus}.}
 
-If income growth is lower, then bracket creep will be less regressive, as \Vref{tbl:2} shows. The effect of lower wage growth on the Tax Plan will be mixed: it will give more to low-income households (who stay within the expanded Low Income Tax Offset); and help those in the 7\textsuperscript{th} 8\textsuperscript{th} and 9\textsuperscript{th} deciles less (because they will get less benefit from the reduction in tax rate to 32.5c for incomes over \$87,000). Overall, bracket creep and the Tax Plan will reduce the progressivity of the system a little less than if wage growth is at 2.75 per cent rather than 3.5 per cent as projected by the Budget.
+If income growth is lower, then bracket creep will be less regressive, as \Vref{tbl:2} shows. The effect of lower wage growth on the Tax Plan will be mixed: it will give more to low-income households (who stay within the expanded Low Income Tax Offset); and help those in the 7\textsuperscript{th}, 8\textsuperscript{th} and 9\textsuperscript{th} deciles less (because they will get less benefit from the reduction in tax rate to 32.5c for incomes over \$87,000). Overall, bracket creep and the Tax Plan will reduce the progressivity of the system a little less than if wage growth is at 2.75 per cent rather than 3.5 per cent as projected by the Budget.
 
 \section{Other analysis}\label{sec:other-analysis}
 
