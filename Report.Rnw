@@ -292,7 +292,7 @@ share_inc <-
                                10 * floor(p100 / 10) + 10),
                         if_else(p100 == 100, 
                                 "Top 1%", 
-                                "P91-99"))] %>%
+                                "91-99"))] %>%
   .[, .(Share = sum(as.double(y))), 
     keyby = "Percentile"] %>%
   .[, "Share of income" := percent(Share / sum(Share))] %>%
