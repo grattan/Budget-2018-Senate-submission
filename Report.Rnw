@@ -267,8 +267,6 @@ Alternatively, the population of households can be analysed. This takes it accou
   \footcite{Phillips2018}
 It also allows analysis to take into account welfare that depends on the household's income, such as Family Tax Benefit. However, data sources for households are less reliable and less detailed than the data available for individual taxpayers.
 
-\section{Bracket creep impact}\label{sec:bracket-creep-impact}
-
 <<prop_tax_1718>>=
 s1718 <- read_fst("data/s1718.fst", as.data.table = TRUE)
 p1718 <- 
@@ -281,7 +279,9 @@ p1718 <-
   .[]
 @
 
-\begin{table}
+\section{Bracket creep impact}\label{sec:bracket-creep-impact}
+
+\begin{table}[H]
 \caption{Bracket creep will make the tax system less progressive; the Tax Plan does little to unwind this}\label{tbl:1}
 <<Table1, results='asis', warning=FALSE>>=
 share_inc <- 
@@ -304,15 +304,17 @@ cbind(share_inc,
         read_fst("data/share-of-tot-income-tax-by-decile-top1pc-2-75-wage-growth.fst", 
                  as.data.table = TRUE)}) %>%
         .[, Decile := NULL] %>%
-        setnames(old = names(.),
-                 new = paste0("Share of income tax__", names(.))) %>%
-        .[, lapply(.SD, percent), by = c(names(.)[1:2])] %>%
-    print_2heading_xtable(xtable.align = "rrRRRR", 
-                          floating = FALSE, 
-                          tabular.environment = "tabularx", 
-                          width = "\\columnwidth")
+  set_cols_first("Percentile") %>%
+  setnames(old = names(.)[-c(1:2)],
+           new = paste0("Share of income tax__", names(.)[-c(1:2)])) %>%
+  .[, lapply(.SD, percent), by = c(names(.)[1:2])] %>% 
+  print_2heading_xtable(xtable.align = "rrRRRR", 
+                        floating = FALSE, 
+                        tabular.environment = "tabularx", 
+                        width = "\\columnwidth")
 @
 \end{table}
+
 
 At present, the top 20 per cent of income earners -- who earn \Sexpr{grattan_percent(p1718[.(5)][["inc"]])} of taxable income -- pay \Sexpr{grattan_percent(p1718[.(5)][["tax"]])} of income tax. As shown in \Vref{tbl:1}, without changes to income tax rates, bracket creep will make the system \emph{less} progressive, and they will only pay \Sexpr{grattan_percent(sum(tail(share_tot_inc_tax[["2027-28 baseline"]], 3)))} of income tax.
 
@@ -335,19 +337,21 @@ fread("~/grattan/vignettes/long-vignettes/avg_tax_rates-by-facet-percentile.csv"
               "Budget2018", 
               "Budget2018_baseline")] %>%
   .[fy_year %in% c("2017-18", "2027-28")] %>%
-  .[Taxable_Income_percentile == 50, label := facet] %T>%
+  .[Taxable_Income_percentile == 50,
+    label := facet] %T>%
   fwrite("atlas/fig2.csv") %>%
   grplot(aes(x = Taxable_Income_percentile, y = avg_tax_rate, color = facet)) + 
   geom_line() + 
+  scale_y_continuous(label = percent) +
   xlab("Percentile of taxfilers") +
   geom_label_repel(aes(label = label), 
                    fontface = "bold",
                    family = "helvet",
                    label.size = NA,
                    size = 6.14,
-                   box.padding = 0.5,
+                   box.padding = 2,
                    point.padding = 0.3,
-                   force = 4,
+                   force = 5,
                    na.rm = TRUE)
 @
 
@@ -484,14 +488,29 @@ And even if such people have moved into a higher tax bracket, bracket creep will
 \begin{table}[H]
 \caption{Lower wages growth would make bracket creep and the Tax Package less regressive over the decade}\label{tbl:2}
 <<wages_growth, results = "asis", warning=FALSE>>=
-merge(
-          fread("~/grattan/vignettes/long-vignettes/share-of-tot-income-tax-by-decile-top1pc-budget-wage-growth.csv"), 
-          fread("~/grattan/vignettes/long-vignettes/share-of-tot-income-tax-by-decile-top1pc-2-75-wage-growth.csv"),
-          by = "Decile",
-          suffixes = c("__Budget assumptions", "__2.75\\% wage growth"), 
-          sort = FALSE) %>%
+wageFile <- function(x = c("budget", "2-75")) {
+  file.path("~/grattan", 
+            "vignettes", 
+            "long-vignettes", 
+            sprintf("share-of-tot-income-tax-by-decile-top1pc-%s-wage-growth.csv", x))
+}
+force_integer <- function(x) suppressWarnings(as.integer(x))
+
+merge(x = fread(wageFile("budget")),
+      y = fread(wageFile("2-75")),
+      by = "Decile",
+      suffixes = c("__Budget assumptions", "__2.75\\% wage growth"), 
+      sort = FALSE) %>%
   setnames(names(.), sub("^(.*)__(.*)$", "\\2__\\1", names(.))) %>%
-             .[, lapply(.SD, percent), by = "Decile"] %>%
+  .[, lapply(.SD, percent), by = "Decile"] %>%
+  .[, Decile := sub(" perc\\.$", "", Decile)] %>%
+  .[, Percentile := if_else(Decile %in% as.character(1:9), 
+                            paste0(10 * force_integer(Decile) - 9, 
+                                   "-", 
+                                   10 * force_integer(Decile)), 
+                            Decile)] %>%
+  .[, Decile := NULL] %>%
+  set_cols_first("Percentile") %>%
   print_2heading_xtable(xtable.align = "lrRRRRRR",
                         floating = FALSE, 
                         tabular.environment = "tabularx", 

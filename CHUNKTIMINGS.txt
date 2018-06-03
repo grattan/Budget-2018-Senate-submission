@@ -7,6 +7,6 @@
   0.1	prop_tax_1718
   0.1	Table1
   0.3	fig2
-  1.3	fig3
+  1.2	fig3
   0.3	progressivities
   0.0	wages_growth
