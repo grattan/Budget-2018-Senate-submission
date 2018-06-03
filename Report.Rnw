@@ -360,9 +360,9 @@ Under the Tax Plan, a person who earns \$120,000 today (more than 90 per cent of
 
 As a result, about 3 per cent of the tax burden will be shifted from the top 20 per cent of income earners to everyone else, as shown in \Vref{tbl:1}. Analysis of \emph{household} quintiles provides similar results, although this is less fine-grained than our analysis of taxpayers.\footcite{Phillips2018}
 
-One published analysis of all adults appears to differ. It suggests that the top 20 per cent of adults -- approximately the top 40 per cent of taxfilers -- will pay a greater percentage of income tax in 2024-25 than in 2017-18,\footcite{Greber} but to date we have been unable to reproduce this analysis with publicly available data.
+One published analysis of all adults appears to differ. It suggests that the top 20 per cent of adults -- approximately the top 40 per cent of taxfilers -- will pay a greater percentage of income tax in 2024-25 than in 2017-18,\footcite{Greber} but so far we have been unable to reproduce this analysis using the available data.
 
-Overall, the Tax Plan itself has a similar effect on most taxfilers. The various components of the package collectively reduce average tax rates by around 2 percentage points for almost all taxpayers in a way that is so remarkably flat that it looks as though they were designed that way -- and perhaps they were. The only exception are the top 1 per cent get less of a tax cut as a proportion of their income, while the top 2 to 6 per cent get a bit more, as shown in \Vref{fig:3}.
+Overall, the Tax Plan itself has a similar effect on the majority of taxfilers. The various components of the package collectively reduce average tax rates by around 1 percentage points for most middle income taxpayers. But they reduce tax for the top 20 per cent of taxpayers by substantially more -- around 2 to 3 per cent of income. The exception are the top 1 per cent, who get less -- their tax cut is only worth only about 1 per cent of their income, as shown in \Vref{fig:3}.
 
 \begin{figure}
 \caption{Bracket creep hurts middle incomes most; the Tax Plan provides similar relief across the board apart from the top two deciles}\label{fig:3}
@@ -437,7 +437,7 @@ bound_models %>%
 \source{\textcite{ATO2018}; Grattan analysis}
 \end{figure}
 
-The overall progressivity of a tax system can be measured using the Reynolds-Smolensky index.  This calculates how much a tax system redistributes incomes.
+The overall progressivity of a tax system can be measured using the Reynolds-Smolensky index. This calculates how much a tax system redistributes incomes.
 As shown in \Vref{fig:progressivity}, on this measure the Australian income tax system became more progressive between 2012 and 2016. Without change, bracket creep will make the system less progressive. The first stages of the Tax Plan will make it more progressive; the final tranche will make it less progressive.
 
 
@@ -466,7 +466,7 @@ The impact of bracket creep and the tax package vary depending on future growth 
   \footcite[][1--10]{Treasury2018a}
 Many have suggested that this is too high, given much lower wages growth in Australia and around the world for an extended period.\footnote{For example, \textcite{Knaus}.}
 
-If income growth is lower, then bracket creep will be less regressive, as \Vref{fig:progressivity} shows. The effect of lower wage growth on the Tax Plan will be mixed: it will give more to low-income households (who stay within the expanded Low Income Tax Offset); and help those in the 7\textsuperscript{th} 8\textsuperscript{th} and 9\textsuperscript{th} deciles less (because they will get less benefit from the reduction in tax rate to 32.5c for incomes over \$87,000). Overall, bracket creep and the Tax Package will reduce the progressivity of the system a little less than if wage growth is at 2.75 per cent rather than 3.5 per cent as projected by the Budget.
+If income growth is lower, then bracket creep will be less regressive, as \Vref{tbl:2} shows. The effect of lower wage growth on the Tax Plan will be mixed: it will give more to low-income households (who stay within the expanded Low Income Tax Offset); and help those in the 7\textsuperscript{th} 8\textsuperscript{th} and 9\textsuperscript{th} deciles less (because they will get less benefit from the reduction in tax rate to 32.5c for incomes over \$87,000). Overall, bracket creep and the Tax Package will reduce the progressivity of the system a little less than if wage growth is at 2.75 per cent rather than 3.5 per cent as projected by the Budget.
 
 \section{Other analysis}\label{sec:other-analysis}
 
