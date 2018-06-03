@@ -356,7 +356,7 @@ fread("~/grattan/vignettes/long-vignettes/avg_tax_rates-by-facet-percentile.csv"
 
 Once fully implemented, the Tax Plan won't have much impact on the progressivity of the tax system. Overall, those on high incomes will pay a similar proportion of total tax revenues with or without the Tax Plan. But because of bracket creep in the meantime, high-income earners will be paying a lower proportion of income tax than today.
 
-Under the Tax Plan, a person who earns \$120,000 today (more than 90 per cent of other income earners) will pay an average tax rate of 29 per cent in 2027-28, unchanged from today. In contrast, average tax rates for middle-income earners will be higher. The average tax rate for a taxpayer who earns \$36,000-a-year today (more than 40 per cent of other taxpayers) will increase 6 percentage points (from 10 to 16 per cent).
+Under the Tax Plan, a person who earns \$120,000 today (more than 90 per cent of other income earners) will pay an average tax rate of 29 per cent in 2027-28, unchanged from today. In contrast, average tax rates for middle-income earners will be higher. The average tax rate for a taxpayer who earns \$36,000-a-year today (more than 40 per cent of other taxpayers) will increase 6 percentage points (from 10 per cent to 16 per cent).
 
 As a result, about 3 per cent of the tax burden will be shifted from the top 20 per cent of income earners to everyone else, as shown in \Vref{tbl:1}. Analysis of \emph{household} quintiles provides similar results, although this is less fine-grained than our analysis of taxpayers.\footcite{Phillips2018}
 
