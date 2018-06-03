@@ -1,12 +1,12 @@
   0.1	loadPackages
   0.1	CHART-GEOM
-  2.4	bound_models
-  1.2	costing202425
+  1.0	bound_models
+  1.1	costing202425
   0.5	fig1
-  0.5	prop_tranche_3
+  0.6	prop_tranche_3
   0.1	prop_tax_1718
   0.1	Table1
-  0.4	fig2
+  0.3	fig2
   1.2	fig3
   0.3	progressivities
   0.0	wages_growth
